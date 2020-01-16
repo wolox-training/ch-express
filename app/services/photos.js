@@ -1,6 +1,6 @@
 const { api } = require('./config');
 
-module.exports.getPhotos = () =>
+exports.getPhotos = () =>
   api
     .get('/photos')
     .then(response => response)
