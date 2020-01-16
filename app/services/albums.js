@@ -3,5 +3,5 @@ const { api } = require('./config');
 module.exports.getAlbums = () =>
   api
     .get('/albums')
-    .then(response => console.log(response))
-    .catch(error => console.log(error));
+    .then(response => response)
+    .catch(error => error);
