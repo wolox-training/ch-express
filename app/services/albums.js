@@ -1,7 +1,10 @@
 const { api } = require('./config');
 
-exports.getAlbums = () =>
-  api
-    .get('/albums')
-    .then(response => response)
-    .catch(error => error);
+exports.getAlbums = async () => {
+  try {
+    const { data } = await api.get('/photos');
+    return data;
+  } catch (e) {
+    return e;
+  }
+};
