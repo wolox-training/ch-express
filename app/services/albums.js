@@ -5,6 +5,6 @@ exports.getAlbums = async () => {
     const { data } = await api.get('/photos');
     return data;
   } catch (e) {
-    return e;
+    return { error: e };
   }
 };
