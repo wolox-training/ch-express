@@ -8,3 +8,12 @@ exports.getAlbums = async () => {
     return { error: e };
   }
 };
+
+exports.getAlbumsById = async albumId => {
+  try {
+    const { data } = await api.get(`/albums/${albumId}/photos`);
+    return data;
+  } catch (e) {
+    return { error: e };
+  }
+};

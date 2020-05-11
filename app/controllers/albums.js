@@ -1,3 +1,11 @@
-exports.getAlbums = (req, res) => req.status(200).send(res);
+const { getAlbums, getAlbumsById } = require('../services/albums');
 
-exports.getAlbumsById = (req, res) => req.status(200).send(res);
+exports.getAlbums = (req, res, next) =>
+  getAlbums()
+    .then(data => res.status(200).send({ albums: data }))
+    .catch(next);
+
+exports.getAlbumsById = (req, res, next) =>
+  getAlbumsById(req.params.albumId)
+    .then(data => res.status(200).send({ album: data }))
+    .catch(next);

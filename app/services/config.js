@@ -1,6 +1,7 @@
 const axios = require('axios');
+const { BASE_URL_TIMEOUT } = require('../constants');
 
 exports.api = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com',
-  timeout: 10000
+  baseURL: process.env.BASE_URL,
+  timeout: BASE_URL_TIMEOUT
 });
